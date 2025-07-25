@@ -1,7 +1,7 @@
 /* Base styles */
 :root {
-  --primary-color: #2563eb;
-  --secondary-color: #1e40af;
+  --primary-color: #ff5f00;
+  --secondary-color: #ff5f00;
   --dark-color: #1e293b;
   --light-color: #f8fafc;
   --gray-color: #64748b;
@@ -121,14 +121,31 @@ nav {
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
   color: var(--dark-color);
   font-weight: 500;
+  padding-bottom: 5px;
   transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
   color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .burger {
@@ -235,7 +252,7 @@ nav {
   content: '';
   position: absolute;
   width: 3px;
-  background-color: var(--gray-color);
+  background-color: var(--primary-color);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -689,7 +706,7 @@ nav {
 footer {
   background-color: var(--dark-color);
   color: white;
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 .footer-content {
@@ -712,6 +729,34 @@ footer {
 
 .footer-links a:hover {
   color: var(--primary-color);
+}
+
+.footer-content p a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.footer-content p a:hover {
+  text-decoration: underline;
+}
+
+/* Bouton "Retour en haut" */
+#backToTop {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  display: none;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
 }
 
 /* Media Queries */
